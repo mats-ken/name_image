@@ -222,6 +222,9 @@ namespace name_image {
 			}
 
 			void	AddName(System::String^ nameIn, System::String^ nameOut, System::String^ caption){
+				if (!System::IO::File::Exists(nameIn)) {
+					return;
+				}
 				System::Drawing::Bitmap^ bmp = gcnew System::Drawing::Bitmap(nameIn);
 				System::Drawing::Image^ img = bmp;
 				const	int	div = 20;
